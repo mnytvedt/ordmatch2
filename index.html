@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ordmatch Spill – Bilde/Ord-modus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section id="menu" class="menu" aria-labelledby="title">
+      <h1 id="title">🎮 Ordmatch Spill</h1>
+      <p>Velg en kategori og spillmodus. Klikk så riktig svar!</p>
+      <fieldset class="mode-box" aria-label="Spillmodus">
+        <legend>Spillmodus</legend>
+        <label class="mode-option">
+          <input type="radio" name="mode" value="wordToImage" checked />
+          <span>Vis <strong>ord</strong> → velg <strong>bilde</strong></span>
+        </label>
+        <label class="mode-option">
+          <input type="radio" name="mode" value="imageToWord" />
+          <span>Vis <strong>bilde</strong> → velg <strong>ord</strong></span>
+        </label>
+      </fieldset>
+      <button class="btn-category" data-category="colors">🌈 Farger</button>
+      <button class="btn-category" data-category="animals">🦁 Dyr</button>
+      <div class="best-scores" aria-live="polite">
+        <h2>Beste resultater</h2>
+        <ul id="bestList" class="best-list"></ul>
+      </div>
+    </section>
+    <section id="game" class="game" hidden aria-labelledby="gameTitle">
+      <div class="game-header">
+        <h2 id="gameTitle" class="category-title">Kategori</h2>
+        <div class="header-right">
+          <span id="modeBadge" class="mode-badge">—</span>
+          <div class="timer-wrap" aria-live="polite">⏱️ <span id="timer" class="timer">0s</span></div>
+        </div>
+      </div>
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div id="progress" class="progress"></div></div>
+      <div class="question-container">
+        <div id="question" class="question" aria-live="polite">—</div>
+        <div id="options" class="options" role="group" aria-label="Svaralternativer"></div>
+      </div>
+      <button id="backBtn" class="btn-back" aria-disabled="true" disabled>← Tilbake</button>
+    </section>
+    <section id="results" class="results" hidden aria-labelledby="resultsTitle">
+      <h2 id="resultsTitle">Resultat!</h2>
+      <div id="stars" class="stars" aria-label="Stjerner">★</div>
+      <div class="stats">
+        <p>Tid: <strong><span id="finalTime">0</span>s</strong></p>
+        <p>Korrekte svar: <strong><span id="correctAnswers">0</span>/10</strong></p>
+      </div>
+      <button id="toMenu" class="btn-category">← Tilbake til meny</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
